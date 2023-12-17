@@ -19,6 +19,7 @@ export default function Home() {
     <Button><Link href="/Tasks">Tasks</Link></Button>
     <Button><Link href="/Settings">Settings</Link></Button>
     <Button><Link href="/Nurse">Nurse</Link></Button>
+    <Button><Link href="/Admin">Admin</Link></Button>
 
     </div>
     </>

@@ -1,10 +1,9 @@
-'use client'; 
-import React, { useState } from 'react';
-import { useTable } from 'react-table';
-import nurses from './data/nurses.json'; // adjust the path to your nurses.json file
+"use client" 
+import React, { useState } from 'react'
+import nurses from './data/nurses.json' // adjust the path to your nurses.json file
 import { UserNav } from "./components/user-nav"
 import { DataTable } from "./components/data-table"
-import { MainNav } from "./components copy/website/main-nav" 
+import { MainNav } from "@/components/website/main-nav" 
 
 export default function NurseApplicantsPage() {
   const [jobs, setJobs] = useState([]);
