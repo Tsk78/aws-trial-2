@@ -11,11 +11,12 @@ import { Search } from "@/components/website/search"
 
 import { UserNav } from "./components/UserNav"
 import { OverviewContent } from "./components/OverviewContent"
+import  JobsTable  from "./components/JobsTable/Jobs"
 import { MainNav } from "./components/MainNav"
 
 export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app built using the components.",
+  title: "Nurse Homepage",
+  description: "Nurse Homepage",
 }
 
 export default function Nurse() {
@@ -55,7 +56,7 @@ export default function Nurse() {
               <OverviewContent />
             </TabsContent>
             <TabsContent value="Jobs" className="space-y-4">
-              <OverviewContent />
+              <JobsTable />
             </TabsContent>
           </Tabs>
         </div>
