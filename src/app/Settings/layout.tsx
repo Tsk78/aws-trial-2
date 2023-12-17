@@ -12,23 +12,23 @@ export const metadata: Metadata = {
 const sidebarNavItems = [
   {
     title: "Profile",
-    href: "/Forms",
+    href: "/Settings",
   },
   {
     title: "Account",
-    href: "/Forms/account",
+    href: "/Settings/account",
   },
   {
     title: "Appearance",
-    href: "/Forms/appearance",
+    href: "/Settings/appearance",
   },
   {
     title: "Notifications",
-    href: "/Forms/notifications",
+    href: "/Settings/notifications",
   },
   {
     title: "Display",
-    href: "/Forms/display",
+    href: "/Settings/display",
   },
 ]
 
@@ -55,6 +55,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           className="hidden dark:block"
         />
       </div>
+
       <div className="hidden space-y-6 p-10 pb-16 md:block">
         <div className="space-y-0.5">
           <h2 className="text-2xl font-bold tracking-tight">Settings</h2>

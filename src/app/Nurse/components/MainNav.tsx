@@ -15,19 +15,19 @@ export function MainNav({
         href="/Dashboard"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        <img src="/FarrerParkLogo.png" alt="Logo" className="h-6 w-auto" />
+        <img src="/FarrerParkLogo.png" alt="Logo" className="h-7 w-auto" />
       </Link>
       <Link
-        href="/Cards"
+        href="/About Us"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        Cards
+        About Us
       </Link>
       <Link
-        href="/Tasks"
+        href="/Contact Us"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        Table
+        Contact Us
       </Link>
       <Link
         href="/Settings"

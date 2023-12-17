@@ -17,7 +17,9 @@ export default function Home() {
     <Button><Link href="/Dashboard">Dashboard</Link></Button>
     <Button><Link href="/Cards">Cards</Link></Button>
     <Button><Link href="/Tasks">Tasks</Link></Button>
-    <Button><Link href="/Forms">Forms</Link></Button>
+    <Button><Link href="/Settings">Settings</Link></Button>
+    <Button><Link href="/Nurse">Nurse</Link></Button>
+
     </div>
     </>
   )
