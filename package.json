@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
     "@hookform/resolvers": "^3.3.2",

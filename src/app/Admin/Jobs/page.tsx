@@ -1,15 +1,8 @@
-import { Metadata } from "next"
-
+"use client"
 import { Search } from "@/components/website/search"
-
 import { UserNav } from "@/components/website/user-nav"
 import { MainNav } from "@/components/website/main-nav"
 import JobsTable from "./JobsTable/Jobs"
-
-export const metadata: Metadata = {
-  title: "Admin Homepage",
-  description: "Admin Homepage",
-}
 
 export default function Admin() {
   return (
