@@ -1,14 +1,4 @@
-import {
-    ArrowDownIcon,
-    ArrowRightIcon,
-    ArrowUpIcon,
-    CheckCircledIcon,
-    CircleIcon,
-    CrossCircledIcon,
-    QuestionMarkCircledIcon,
-    StopwatchIcon,
-  } from "@radix-ui/react-icons"
-  
+import nurses from './Nurses.json';
   export const Ratings = [
     {
       value: "1 star",
@@ -31,49 +21,21 @@ import {
       Rating: "5 Star",
     }
   ]
-  
-  export const Experience = [
-    {
-      value: "backlog",
-      label: "Backlog",
-      icon: QuestionMarkCircledIcon,
-    },
-    {
-      value: "todo",
-      label: "Todo",
-      icon: CircleIcon,
-    },
-    {
-      value: "in progress",
-      label: "In Progress",
-      icon: StopwatchIcon,
-    },
-    {
-      value: "done",
-      label: "Done",
-      icon: CheckCircledIcon,
-    },
-    {
-      value: "canceled",
-      label: "Canceled",
-      icon: CrossCircledIcon,
-    },
-  ]
-  
-  export const priorities = [
-    {
-      label: "Low",
-      value: "low",
-      icon: ArrowDownIcon,
-    },
-    {
-      label: "Medium",
-      value: "medium",
-      icon: ArrowRightIcon,
-    },
-    {
-      label: "High",
-      value: "high",
-      icon: ArrowUpIcon,
-    },
-  ]
+  export const Experience = nurses.reduce((acc: { value: string; label: string; }[], nurse: { Experience: string; }) => {
+    if (!acc.find((experience: { value: string; }) => experience.value === nurse.Experience)) {
+      acc.push({
+        value: nurse.Experience,
+        label: nurse.Experience,
+      });
+    }
+    return acc;
+  }, []);
+  export const Specialisation = nurses.reduce((acc: { value: string; label: string; }[], nurse: { Specialisation: string; }) => {
+    if (!acc.find((specialisation: { value: string; }) => specialisation.value === nurse.Specialisation)) {
+      acc.push({
+        value: nurse.Specialisation,
+        label: nurse.Specialisation,
+      });
+    }
+    return acc;
+  }, []);

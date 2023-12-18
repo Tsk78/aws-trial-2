@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Ratings} from "../data/data"
+import { Experience, Ratings, Specialisation} from "../data/data"
 import { Task } from "../data/schema"
 import { DataTableColumnHeader } from "./data-table-column-header"
 import { DataTableRowActions } from "./data-table-row-actions"
@@ -65,18 +65,48 @@ export const columns: ColumnDef<Task>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Experience" />
     ),
-    cell: ({ row }) => <div className="w-[140px]">{row.getValue("Experience")}</div>,
-    enableSorting: false,
-    enableHiding: true,
+    cell: ({ row }) => {
+      const Experiences = Experience.find(
+        (Experience) => Experience.value === row.getValue("Experience")
+      )
+
+      if (!Experiences) {
+        return null
+      }
+
+      return (
+        <div className="flex w-[100px] items-center">
+          <span>{row.getValue("Experience")}</span>
+        </div>
+      )
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     accessorKey: "Specialisation",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Specialisation" />
     ),
-    cell: ({ row }) => <div className="w-[140px]">{row.getValue("Specialisation")}</div>,
-    enableSorting: false,
-    enableHiding: true,
+    cell: ({ row }) => {
+      const Specialisations = Specialisation.find(
+        (Specialisation) => Specialisation.value === row.getValue("Specialisation")
+      )
+
+      if (!Specialisations) {
+        return null
+      }
+
+      return (
+        <div className="flex w-[100px] items-center">
+          <span>{row.getValue("Specialisation")}</span>
+        </div>
+      )
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     id: "actions",

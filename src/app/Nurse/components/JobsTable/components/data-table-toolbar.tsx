@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataTableViewOptions } from "./data-table-view-options"
 
-import { priorities, Experience } from "../data/data"
-import { DataTableFacetedFilter } from "./data-table-faceted-filter"
+import { Specialisation, Experience } from "../data/data"
+import { DataTableFacetedFilter } from "./data-table-faceted-filter" // Decide on whether to keep filtering or not
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
@@ -41,7 +41,7 @@ export function DataTableToolbar<TData>({
           <DataTableFacetedFilter
             column={table.getColumn("Specialisation")}
             title="Specialisation"
-            options={priorities}
+            options={Specialisation}
           />
         )}
         {isFiltered && (
