@@ -4,25 +4,25 @@ import { Metadata } from "next"
 import { z } from "zod"
 import { columns } from "./components/columns"
 import { DataTable } from "./components/data-table"
-import { taskSchema } from "./data/schema"
+import { NurseSchema } from "./data/schema"
 export const metadata: Metadata = {
   title: "Tasks",
   description: "A task and issue tracker build using Tanstack Table.",
 }
 
 // Simulate a database read for tasks.
-async function getTasks() {
+async function getNurses() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "./src/app/Tasks/data/tasks.json")
+    path.join(process.cwd(), "./src/app/Nurse/components/JobsTable/data/Nurses.json")
   )
   
-  const tasks = JSON.parse(data.toString())
+  const Nurse = JSON.parse(data.toString())
 
-  return z.array(taskSchema).parse(tasks)
+  return z.array(NurseSchema).parse(Nurse)
 }
 
 export default async function JobsTable() {
-  const tasks = await getTasks()
+  const tasks = await getNurses()
 
   return (
     <>

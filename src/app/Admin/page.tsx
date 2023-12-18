@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { MainNav } from "@/components/website/main-nav"
 import { UserNav } from "@/components/website/user-nav"
-
+import Link from 'next/link'
 interface Job {
   title: string;
   description: string;
@@ -54,7 +54,7 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
-      <div className="flex-1 space-y-4 p-8 pt-6">
+      <div  className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
           <div className="flex items-center space-x-2">
@@ -76,7 +76,7 @@ export default function AdminPage() {
               <CardContent>
                 <CardDescription>Card Desc</CardDescription>
                 <div className="text-2xl font-bold">Applicants: {job.applicants}</div>
-                <Button>View applicants</Button>
+                <Link href="/Admin/Jobs">View applicants</Link>
                 <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
               </CardContent>
             </Card>

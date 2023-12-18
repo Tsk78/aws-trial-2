@@ -19,7 +19,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "IPS",
       "Available_work_timing": "8.30pm to 7.30pm",
-      "label": "4 Stars",
+      "Rating": "4 Stars",
       "Locum_Experience_rating": "4 Stars"
   },
   {
@@ -42,7 +42,7 @@
       "Frequency_of_work": "Three times a week",
       "IPS_or_ICU": "ICU",
       "Available_work_timing": "7pm to 7am",
-      "label": "1 Star",
+      "Rating": "1 Star",
       "Locum_Experience_rating": "1 Star"
   },
   {
@@ -65,7 +65,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "IPS",
       "Available_work_timing": "8.30pm to 7.30pm",
-      "label": "2 Stars",
+      "Rating": "2 Stars",
       "Locum_Experience_rating": "2 Stars"
   },
   {
@@ -88,7 +88,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "ICU",
       "Available_work_timing": "7pm to 7am",
-      "label": "5 Stars",
+      "Rating": "5 Stars",
       "Locum_Experience_rating": "4 Stars"
   },
   {
@@ -111,7 +111,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "IPS",
       "Available_work_timing": "8.30pm to 7.30pm",
-      "label": "4 Stars",
+      "Rating": "4 Stars",
       "Locum_Experience_rating": "1 Star"
   },
   {
@@ -134,7 +134,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "ICU",
       "Available_work_timing": "7pm to 7am",
-      "label": "1 Star",
+      "Rating": "1 Star",
       "Locum_Experience_rating": "2 Stars"
   },
   {
@@ -157,7 +157,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "IPS",
       "Available_work_timing": "8.30pm to 7.30pm",
-      "label": "2 Stars",
+      "Rating": "2 Stars",
       "Locum_Experience_rating": "5 Stars"
   },
   {
@@ -180,7 +180,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "ICU",
       "Available_work_timing": "7pm to 7am",
-      "label": "4 Stars",
+      "Rating": "4 Stars",
       "Locum_Experience_rating": "4 Stars"
   },
   {
@@ -203,7 +203,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "IPS",
       "Available_work_timing": "8.30pm to 7.30pm",
-      "label": "1 Star",
+      "Rating": "1 Star",
       "Locum_Experience_rating": "4 Stars"
   },
   {
@@ -226,7 +226,7 @@
       "Frequency_of_work": "Once a week",
       "IPS_or_ICU": "ICU",
       "Available_work_timing": "7pm to 7am",
-      "label": "2 Stars",
+      "Rating": "2 Stars",
       "Locum_Experience_rating": "1 Star"
   }
 ]
