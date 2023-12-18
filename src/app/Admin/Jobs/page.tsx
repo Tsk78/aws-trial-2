@@ -1,4 +1,3 @@
-"use client"
 import { Search } from "@/components/website/search"
 import { UserNav } from "@/components/website/user-nav"
 import { MainNav } from "@/components/website/main-nav"

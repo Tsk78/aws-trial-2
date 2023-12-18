@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 export function MainNav({
@@ -15,7 +15,7 @@ export function MainNav({
         href="/Dashboard"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        <img src="/FarrerParkLogo.png" alt="Logo" className="h-6 w-auto" />
+        <Image  height={7} width={10} src="/FarrerParkLogo.png" alt="Logo" className="h-6 w-auto" />
       </Link>
       <Link
         href="/Cards"

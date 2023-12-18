@@ -17,7 +17,7 @@ export const columns: ColumnDef<Task>[] = [
           (table.getIsSomePageRowsSelected() && "indeterminate")
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-Rating="Select all"
+        aria-label="Select all"
         className="translate-y-[2px]"
       />
     ),
@@ -25,7 +25,7 @@ export const columns: ColumnDef<Task>[] = [
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-Rating="Select row"
+        aria-label="Select row"
         className="translate-y-[2px]"
       />
     ),
@@ -44,7 +44,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "Rating",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Ratings" />
+      <DataTableColumnHeader column={column} title="Rating" />
     ),
     cell: ({ row }) => {
       const Rating = Ratings.find((Rating) => Rating.value === row.original.Rating)
