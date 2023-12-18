@@ -1,72 +1,31 @@
-"use client" 
-import React, { useState } from 'react'
-import nurses from './data/nurses.json' // adjust the path to your nurses.json file
-import { UserNav } from "./components/user-nav"
-import { DataTable } from "./components/data-table"
-import { MainNav } from "@/components/website/main-nav" 
+import { Metadata } from "next"
 
-export default function NurseApplicantsPage() {
-  const [jobs, setJobs] = useState([]);
-  const [newJobTitle, setNewJobTitle] = useState('');
+import { Search } from "@/components/website/search"
 
-  const columns = React.useMemo(
-    () => [
-      {
-        id: 'Name',
-        Header: 'Name',
-        accessor: 'Name',
-      },
-      {
-        id: 'Type_of_Registration',
-        Header: 'Type of Registration',
-        accessor: 'Type_of_Registration',
-      },
-      {
-        id: 'nric',
-        Header: 'NRIC',
-        accessor: 'NRIC',
-      },
-      // Add more columns as needed
-      // ...
-      {
-        id: 'locumExperienceRating',
-        Header: 'Locum Experience Rating',
-        accessor: 'Locum_Experience_rating',
-      },
-    ],
-    []
-  );
+import { UserNav } from "@/components/website/user-nav"
+import { MainNav } from "@/components/website/main-nav"
+import JobsTable from "./JobsTable/Jobs"
 
-  const handleRemoveJob = (index: number) => {
-    const newJobs = [...jobs];
-    newJobs.splice(index, 1);
-    setJobs(newJobs);
-  };
+export const metadata: Metadata = {
+  title: "Admin Homepage",
+  description: "Admin Homepage",
+}
 
+export default function Admin() {
   return (
     <>
-      <div className="border-b">
-        <div className="flex h-16 items-center px-4">
-          <MainNav className="mx-6" />
-          <div className="ml-auto flex items-center space-x-4">
-            <UserNav />
+      <div className="hidden flex-col md:flex">
+        <div className="border-b">
+          <div className="flex h-16 items-center px-4">
+            <MainNav className="mx-6" />
+            <div className="ml-auto flex items-center space-x-4">
+              <Search />
+              <UserNav />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex-1 space-y-4 p-8 pt-6">
-        <div className="flex items-center justify-between space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
-          <div className="flex items-center space-x-2">
-            <input
-              type="text"
-              value={newJobTitle}
-              onChange={(e) => setNewJobTitle(e.target.value)}
-              placeholder="Job title"
-            />
-          </div>
-        </div>
-        <DataTable columns={columns} data={nurses} />
-      </div>
+        <JobsTable />
+         </div>
     </>
-  );
+  )
 }
