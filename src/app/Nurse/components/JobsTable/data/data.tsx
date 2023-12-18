@@ -9,22 +9,30 @@ import {
     StopwatchIcon,
   } from "@radix-ui/react-icons"
   
-  export const labels = [
+  export const Ratings = [
     {
-      value: "bug",
-      label: "Bug",
+      value: "1 star",
+      Rating: "1 Star",
     },
     {
-      value: "feature",
-      label: "Feature",
+      value: "2 star",
+      Rating: "2 Star",
     },
     {
-      value: "documentation",
-      label: "Documentation",
+      value: "3 star",
+      Rating: "3 Star",
     },
+    {
+      value: "4 star",
+      Rating: "4 Star",
+    },
+    {
+      value: "5 star",
+      Rating: "5 Star",
+    }
   ]
   
-  export const statuses = [
+  export const Experience = [
     {
       value: "backlog",
       label: "Backlog",
