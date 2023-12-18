@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -13,15 +13,26 @@ import { UserNav } from "@/components/website/user-nav"
 
 interface Job {
   title: string;
+  description: string;
   applicants: number;
 }
 
 export default function AdminPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [newJobTitle, setNewJobTitle] = useState('');
+  const [newJobDescription, setNewJobDescription] = useState('');
+  // Load jobs from local storage when component mounts
+  useEffect(() => {
+    const savedJobs = localStorage.getItem('jobs');
+    if (savedJobs) {
+      setJobs(JSON.parse(savedJobs));
+    }
+  }, []);
 
   const handleAddJob = () => {
-    setJobs([...jobs, { title: newJobTitle, applicants: 0 }]);
+    const newJobs = [...jobs, { title: newJobTitle, description: newJobDescription ,applicants: 0 }];
+    setJobs(newJobs);
+    localStorage.setItem('jobs', JSON.stringify(newJobs)); // Save jobs to local storage
     setNewJobTitle('');
   };
 
@@ -29,7 +40,9 @@ export default function AdminPage() {
     const newJobs = [...jobs];
     newJobs.splice(index, 1);
     setJobs(newJobs);
+    localStorage.setItem('jobs', JSON.stringify(newJobs)); // Save jobs to local storage
   };
+
 
   return (
     <>
@@ -61,6 +74,7 @@ export default function AdminPage() {
                 <CardTitle className="text-sm font-medium">{job.title}</CardTitle>
               </CardHeader>
               <CardContent>
+                <CardDescription>Card Desc</CardDescription>
                 <div className="text-2xl font-bold">Applicants: {job.applicants}</div>
                 <Button>View applicants</Button>
                 <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
