@@ -8,8 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { MainNav } from "@/components/website/main-nav"
-import { UserNav } from "@/components/website/user-nav"
+import { MainNav } from "./components/main-nav"
+import { UserNav } from "./components/user-nav"
 import Link from 'next/link'
 interface Job {
   title: string;
@@ -76,7 +76,9 @@ export default function AdminPage() {
               <CardContent>
                 <CardDescription>Card Desc</CardDescription>
                 <div className="text-2xl font-bold">Applicants: {job.applicants}</div>
-                <Link href="/Admin/Jobs">View applicants</Link>
+                <Button asChild style={{ marginRight: '10px' }}>
+                <Link href={`/Admin/${job.title}`}>View applicants</Link>
+                </Button>
                 <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
               </CardContent>
             </Card>
