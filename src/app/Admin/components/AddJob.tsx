@@ -1,6 +1,4 @@
 "use client"
-
-import { Icons } from "@/components/Icons main"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -13,47 +11,27 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function DemoCreateAccount() {
+export function AddJob() {
   return (
-    <Card>
-      <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl">Create an account</CardTitle>
+    <Card className="w-1/2 h-1/2 mx-auto ">
+      <CardHeader className="space-y-1 items-center">
+        <CardTitle className="text-6xl pt-5">Create a New Job</CardTitle>
         <CardDescription>
-          Enter your email below to create your account
+          Add the job name and description below
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className="grid grid-cols-2 gap-6">
-          <Button variant="outline">
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            Github
-          </Button>
-          <Button variant="outline">
-            <Icons.google className="mr-2 h-4 w-4" />
-            Google
-          </Button>
-        </div>
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
-              Or continue with
-            </span>
-          </div>
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" />
-        </div>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full">Create account</Button>
+      <CardContent className="flex flex-col justify-center items-center gap-8">
+  <div className="grid gap-2 w-full ">
+    <Label htmlFor="JobName">Job Name</Label>
+    <Input id="JobName" type="JobName" placeholder="Title of the Job" />
+  </div>
+  <div className="grid gap-2 w-full">
+    <Label htmlFor="JobDescription">Job Description</Label>
+    <Input id="JobDescription" type="JobDescription" placeholder="Description of the Job" />
+  </div>
+</CardContent>
+<CardFooter>
+        <Button className="w-full">Create Job</Button>
       </CardFooter>
     </Card>
   )

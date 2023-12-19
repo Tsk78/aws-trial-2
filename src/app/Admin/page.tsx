@@ -16,11 +16,12 @@ interface Job {
   description: string;
   applicants: number;
 }
-
+import { AddJob } from './components/AddJob';
 export default function AdminPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [newJobTitle, setNewJobTitle] = useState('');
   const [newJobDescription, setNewJobDescription] = useState('');
+  const [showAddJob, setShowAddJob] = useState(false);
   // Load jobs from local storage when component mounts
   useEffect(() => {
     const savedJobs = localStorage.getItem('jobs');
@@ -54,19 +55,30 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
+
+      {showAddJob && (
+          <div className="fixed bg-black opacity-50 inset-0 flex items-center justify-center" onClick={() => setShowAddJob(false)}>
+            <div style={{ zIndex: 1, backgroundColor: 'green' }} onClick={(e) => e.stopPropagation()}>
+              <AddJob />
+            </div>
+          </div>
+        )}
       <div  className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
           <div className="flex items-center space-x-2">
-            <input
+            {/* <input
               type="text"
               value={newJobTitle}
               onChange={(e) => setNewJobTitle(e.target.value)}
               placeholder="Job title"
-            />
-            <Button onClick={handleAddJob}>Add job</Button>
+            /> */}
+            {/* <Button onClick={handleAddJob}>Add job</Button> */}
+            <Button onClick={() => setShowAddJob(true)}>Add job</Button>      
           </div>
         </div>
+
+
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {jobs.map((job, index) => (
             <Card key={index}>
