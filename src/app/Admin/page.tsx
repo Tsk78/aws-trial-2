@@ -46,10 +46,10 @@ export default function AdminPage() {
 
   return (
     <>
-      <div className="border-b">
+      <div className="border-b-2 border-black bg-gray-100">
         <div className="flex h-16 items-center px-4">
           <MainNav className="mx-6" />
-          <div className="ml-auto flex items-center space-x-4">
+          <div className="ml-auto flex items-center space-x-5">
             <UserNav />
           </div>
         </div>
@@ -71,11 +71,11 @@ export default function AdminPage() {
           {jobs.map((job, index) => (
             <Card key={index}>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{job.title}</CardTitle>
+                <CardTitle className="text-l font-medium">{job.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>Card Desc</CardDescription>
-                <div className="text-2xl font-bold">Applicants: {job.applicants}</div>
+                <div className="text-m ">Applicants: {job.applicants}</div>
                 <Button asChild style={{ marginRight: '10px' }}>
                 <Link href={`/Admin/${job.title}`}>View applicants</Link>
                 </Button>

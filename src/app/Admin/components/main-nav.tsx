@@ -21,13 +21,13 @@ export function MainNav({
         href="/Admin/AboutUs"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        AboutUs
+        About Us
       </Link>
       <Link
         href="/Admin/ContactUs"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        ContactUs
+        Contact Us
       </Link>
       <Link
         href="/Admin/Settings"
