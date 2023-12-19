@@ -56,13 +56,13 @@ export default function AdminPage() {
         </div>
       </div>
 
-      {showAddJob && (
+      {/* {showAddJob && (
           <div className="fixed bg-black opacity-50 inset-0 flex items-center justify-center" onClick={() => setShowAddJob(false)}>
             <div style={{ zIndex: 1, backgroundColor: 'green' }} onClick={(e) => e.stopPropagation()}>
               <AddJob />
             </div>
           </div>
-        )}
+        )} */}
       <div  className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
@@ -74,7 +74,8 @@ export default function AdminPage() {
               placeholder="Job title"
             /> */}
             {/* <Button onClick={handleAddJob}>Add job</Button> */}
-            <Button onClick={() => setShowAddJob(true)}>Add job</Button>      
+            {/* <Button onClick={() => setShowAddJob(true)}>Add job</Button>       */}
+            <AddJob />
           </div>
         </div>
 
