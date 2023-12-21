@@ -1,7 +1,7 @@
 import Link from "next/link"
-
-import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
+
 export function MainNav({
   className,
   ...props
@@ -12,25 +12,25 @@ export function MainNav({
       {...props}
     >
       <Link
-        href="/Dashboard"
+        href="/Nurse"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        <Image height={7} width={10} src="/FarrerParkLogo.png" alt="Logo" className="h-7 w-auto" />
+        <Image  height={7} width={80} quality={100} src="/FarrerParkLogo.png" alt="Logo"  />
       </Link>
       <Link
-        href="/About Us"
+        href="https://www.farrerpark.com/about-us.html"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         About Us
       </Link>
       <Link
-        href="/Contact Us"
+        href="https://www.farrerpark.com/contact-us.html"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Contact Us
       </Link>
       <Link
-        href="/Settings"
+        href="/Nurse/Settings"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Settings

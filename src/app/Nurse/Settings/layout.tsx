@@ -1,6 +1,6 @@
 import { Metadata } from "next"
-import Image from "next/image"
-
+import { MainNav } from "../components/MainNav"
+import { UserNav } from "../components/UserNav"
 import { Separator } from "@/components/ui/separator"
 import { SidebarNav } from "./components/sidebar-nav"
 
@@ -39,6 +39,14 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
+          <div className="border-b-2 border-black bg-gray-100">
+        <div className="flex h-16 items-center px-4">
+          <MainNav className="mx-6" />
+          <div className="ml-auto flex items-center space-x-5">
+            <UserNav />
+          </div>
+        </div>
+      </div>
       <div className="hidden space-y-6 p-10 pb-16 md:block">
         <div className="space-y-0.5">
           <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
