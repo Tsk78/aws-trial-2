@@ -12,15 +12,16 @@ export const metadata: Metadata = {
 
 // Simulate a database read for tasks.
 async function getNurses() {
-  const data = await fs.readFile(
-    path.join(process.cwd(), "./src/app/Nurse/components/JobsTable/data/Nurses.json")
-  )
+  const response = await fetch('http://127.0.0.1:5000/nurses');
   
-  const Nurse = JSON.parse(data.toString())
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-  return z.array(NurseSchema).parse(Nurse)
+  const Nurse = await response.json();
+
+  return z.array(NurseSchema).parse(Nurse);
 }
-
 export default async function JobsTable() {
   const tasks = await getNurses()
 
