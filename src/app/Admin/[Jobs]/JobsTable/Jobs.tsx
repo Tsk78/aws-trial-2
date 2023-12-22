@@ -1,5 +1,3 @@
-import { promises as fs } from "fs"
-import path from "path"
 import { Metadata } from "next"
 import { z } from "zod"
 import { columns } from "./components/columns"
