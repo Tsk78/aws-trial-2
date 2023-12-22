@@ -9,9 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
-import JobDetails from "../../[Jobs]/page";
+
+import Link from 'next/link';
+
+
 interface Job {
   title: string;
   description: string;
@@ -31,7 +32,7 @@ export default function JobList() {
     }
   }, []);
   return (
-    <Router>
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
           {jobs.map((job, index) => (
@@ -45,7 +46,7 @@ export default function JobList() {
                 <CardDescription>{job.description}</CardDescription>
                 <div className="text-m ">Applicants: {job.applicants}</div>
                 <Button asChild style={{ marginRight: "10px" }}>
-                  <Link to={`/Nurse/${job.title}`}>View Details</Link>
+                  <Link href={`/Nurse/${job.title}`}>View Details</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -53,6 +54,6 @@ export default function JobList() {
 
         </div>
       </div>
-    </Router>
+
   );
 }

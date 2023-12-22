@@ -21,14 +21,15 @@ export default function JobDetails({ params }: { params: { title: string } }) {
     }
   }, []);
 
-  // Find the job that matches the id parameter
+  // Find the job that matches the title parameter
 
+  console.log(jobs);
 
-  const job = jobs.find(job => job.title === params.title);
+  const job = jobs.find(job => job.title === decodeURIComponent(params.title));
 
-  // If no job matches the id parameter, return null
+  // If no job matches the title parameter, return null
   if (!job) {
-    return null;
+    return <h1 className='self-center'>Job not found</h1>;
   }
 
   return (

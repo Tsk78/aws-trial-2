@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"
 import {
@@ -15,7 +16,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Separator } from '@/components/ui/separator';
 
 interface Job {
-  id: string;
   title: string;
   description: string;
   roleDescription: string;
@@ -44,7 +44,7 @@ export default function AddJob(){
 
   const handleAddJob = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    const newJobs = [...jobs, { id: jobTitle, title: jobTitle, description: jobDescription, roleDescription: roleDescription, keyResponsibilities: keyResponsibilities, requirements: requirements, applicants: 0 }];
+    const newJobs = [...jobs, { title: jobTitle, description: jobDescription, roleDescription: roleDescription, keyResponsibilities: keyResponsibilities, requirements: requirements, applicants: 0 }];
     setJobs(newJobs);
     localStorage.setItem('jobs', JSON.stringify(newJobs)); // Save jobs to local storage
     setJobTitle('');
