@@ -1,6 +1,5 @@
-'use client';
-import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"
+import { z } from "zod"
 import {
   Card,
   CardContent,
@@ -12,32 +11,35 @@ import { MainNav } from "./components/main-nav"
 import { UserNav } from "./components/user-nav"
 import Link from 'next/link'
 import AddJob from "./components/AddJob"
-interface Job {
-  title: string;
-  description: string;
-  applicants: number;
+import {JobSchema} from "./data/schema"
+async function getJobs() {
+  const response = await fetch('http://127.0.0.1:5000/jobs');
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const Jobs = await response.json();
+
+  return z.array(JobSchema).parse(Jobs);
 }
-export default function AdminPage() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [jobTitle, setJobTitle] = useState('');
-  const [jobDescription, setJobDescription] = useState('');
+async function handleRemoveJob(index: number) {
+  const response = await fetch('http://127.0.0.1:5000/jobs');
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-  // Load jobs from local storage when component mounts
-  useEffect(() => {
-    const savedJobs = localStorage.getItem('jobs');
-    if (savedJobs) {
-      setJobs(JSON.parse(savedJobs));
-    }
-  }, []);
+  const Jobs = await response.json();
+
+  return z.array(JobSchema).parse(Jobs);
+}
+export default async function AdminPage() {
 
 
-  const handleRemoveJob = (index: number) => {
-    const newJobs = [...jobs];
-    newJobs.splice(index, 1);
-    setJobs(newJobs);
-    localStorage.setItem('jobs', JSON.stringify(newJobs)); // Save jobs to local storage
-  };
 
+  // Load jobs from backend when component mounts
+  const jobs = await getJobs()
 
   return (
     <>
@@ -61,15 +63,15 @@ export default function AdminPage() {
           {jobs.map((job, index) => (
             <Card key={index}>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-l font-medium">{job.title}</CardTitle>
+                <CardTitle className="text-l font-medium">{job.title}</CardTitle> 
               </CardHeader>
               <CardContent>
                 <CardDescription>{job.description}</CardDescription>
-                <div className="text-m ">Applicants: {job.applicants}</div>
+                {/* <div className="text-m ">Applicants: {job.applicants}</div> */}
                 <Button asChild style={{ marginRight: '10px' }}>
                 <Link href={`/Admin/${job.title}`}>View applicants</Link>
                 </Button>
-                <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
+                {/* <Button onClick={() => handleRemoveJob(index)}>Remove job</Button> */}
               </CardContent>
             </Card>
           ))}

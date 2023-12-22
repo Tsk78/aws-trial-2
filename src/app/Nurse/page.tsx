@@ -3,8 +3,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserNav } from "./components/UserNav";
 import { OverviewContent } from "./components/OverviewContent";
 // import  JobsTable  from "./components/JobsTable/Jobs"
-import Jobs from "./JobsDetails/Jobs";
+import Jobs from "./components/JobsList/JobList.";
 import { MainNav } from "./components/MainNav";
+import JobList from "./components/JobsList/JobList.";
 
 export const metadata: Metadata = {
   title: "Nurse Homepage",
@@ -42,7 +43,7 @@ export default function Nurse() {
               <OverviewContent />
             </TabsContent>
             <TabsContent value="Jobs" className="space-y-4">
-              <Jobs />
+              <JobList />
             </TabsContent>
           </Tabs>
         </div>

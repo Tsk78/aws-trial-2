@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 interface Job {
-  id: string;
   title: string;
   description: string;
   roleDescription: string;
@@ -11,13 +10,8 @@ interface Job {
   applicants: number;
 }
 
-interface JobDetailsProps {
-  job: Job;
-}
-
-export default function JobDetails(props: JobDetailsProps) {
+export default function JobDetails({ params }: { params: { title: string } }) {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const { id } = useParams<{ id: string }>();
 
   // Load jobs from local storage when component mounts
   useEffect(() => {
@@ -30,7 +24,7 @@ export default function JobDetails(props: JobDetailsProps) {
   // Find the job that matches the id parameter
 
 
-  const job = jobs.find(job => job.id === id);
+  const job = jobs.find(job => job.title === params.title);
 
   // If no job matches the id parameter, return null
   if (!job) {
