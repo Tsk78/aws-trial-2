@@ -22,7 +22,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-
+import AddJob from "./components/AddJob"
 interface Job {
   title: string;
   description: string;
@@ -71,49 +71,7 @@ export default function AdminPage() {
       <div  className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
-          <div className="flex items-center space-x-2">
-                <Dialog>
-          <DialogTrigger asChild>
-            <Button >Add Job</Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Create a New Job</DialogTitle>
-              <DialogDescription>
-              Add the job name and description below
-              </DialogDescription>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="JobTitle" className="text-right">
-                  Title
-                </Label>
-                <Input
-                id="JobTitle"
-                placeholder="Title of the Job"
-                className="col-span-3"
-                value={jobTitle}
-                onChange={(e) => setJobTitle(e.target.value)}
-              />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="JobDescription" className="text-right">
-                Description
-                </Label>
-                <Input
-                id="JobDescription"
-                placeholder="Description of the Job"
-                className="col-span-3"
-                value={jobDescription}
-                onChange={(e) => setJobDescription(e.target.value)}
-              />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button type="submit" onClick={handleAddJob} >Create Job</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+          <AddJob/>
           </div>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -123,7 +81,7 @@ export default function AdminPage() {
                 <CardTitle className="text-l font-medium">{job.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Card Desc</CardDescription>
+                <CardDescription>{job.description}</CardDescription>
                 <div className="text-m ">Applicants: {job.applicants}</div>
                 <Button asChild style={{ marginRight: '10px' }}>
                 <Link href={`/Admin/${job.title}`}>View applicants</Link>
@@ -133,7 +91,7 @@ export default function AdminPage() {
             </Card>
           ))}
         </div>
-      </div>
+
     </>
   );
 }
