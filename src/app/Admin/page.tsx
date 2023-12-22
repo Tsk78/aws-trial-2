@@ -11,17 +11,6 @@ import {
 import { MainNav } from "./components/main-nav"
 import { UserNav } from "./components/user-nav"
 import Link from 'next/link'
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import AddJob from "./components/AddJob"
 interface Job {
   title: string;
@@ -41,12 +30,6 @@ export default function AdminPage() {
     }
   }, []);
 
-  const handleAddJob = () => {
-    const newJobs = [...jobs, { title: jobTitle, description: jobDescription ,applicants: 0 }];
-    setJobs(newJobs);
-    localStorage.setItem('jobs', JSON.stringify(newJobs)); // Save jobs to local storage
-    setJobTitle('');
-  };
 
   const handleRemoveJob = (index: number) => {
     const newJobs = [...jobs];
