@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -24,6 +24,7 @@ export default function AddJob(){
   const [roleDescription, setRoleDescription] = useState('');
   const [keyResponsibilities, setKeyResponsibilities] = useState('');
   const [requirements, setRequirements] = useState('');
+  const [pay, setPay] = useState('');
   const applicants = '0'
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -35,7 +36,8 @@ export default function AddJob(){
       roleDescription,
       keyResponsibilities,
       requirements,
-      applicants
+      applicants,
+      pay
     };
 
     await handleAddJob(job);
@@ -76,6 +78,18 @@ export default function AddJob(){
                 className="col-span-2"
 
                 onChange={(e) => setJobDescription(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="Pay" className="text-right">
+                Pay
+              </Label>
+              <Input
+                id="Pay"
+                name='Pay'
+                placeholder="Pay rate per hour"
+                className="col-span-2"
+
+                onChange={(e) => setPay(e.target.value)} />
             </div>
             <Separator className="my-6" />
             <div className="grid grid-cols-4 items-center gap-4">

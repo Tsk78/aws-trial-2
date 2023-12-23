@@ -10,7 +10,7 @@ export const JobSchema = z.object({
   keyResponsibilities : z.string(),
   requirements: z.string(),
   applicants: z.string().optional(),
-  pay: z.string(),
+  pay: z.string()
 })
 
 
