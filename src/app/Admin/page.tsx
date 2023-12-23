@@ -36,6 +36,32 @@ export async function handleRemoveJob (index: number) {
   window.location.reload();
   return result;
 }
+export async function handleAddJob (job: any) {
+  const response = await fetch('http://127.0.0.1:5000/add_job', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: job.title,
+      jobdescription: job.jobdescription,
+      roledescription: job.roledescription,
+      keyResponsibilities: job.keyResponsibilities,
+      requirements: job.requirements,
+    })
+  });
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const result = await response.json();
+
+  // Reload the page
+  window.location.reload();
+
+  return result;
+}
 export default async function AdminPage() {
   
   // Load jobs from backend when component mounts
