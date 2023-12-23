@@ -23,7 +23,7 @@ export function JobCard({ jobs }: { jobs: z.infer<typeof JobSchema>[] }) {
           <CardContent>
             <CardDescription >{job.description}</CardDescription>
             <div className="text-m ">Applicants: {job.applicants}</div>
-            <Button asChild style={{ marginRight: '135px' }}>
+            <Button asChild style={{ marginRight: '85px' }}>
               <Link href={`/Admin/${job.title}`}>View applicants</Link>
             </Button>
             <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
