@@ -13,7 +13,7 @@ import Link from 'next/link'
 
 
 export function JobCard({ jobs }: { jobs: z.infer<typeof JobSchema>[] }) {
-  return ( // Add this opening curly brace
+  return ( 
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {jobs.map((job, index) => (
         <Card key={index}>

@@ -3,7 +3,6 @@ import { MainNav } from "./components/main-nav"
 import { UserNav } from "./components/user-nav"
 import AddJob from "./components/AddJob"
 import {JobSchema} from "./data/schema"
-
 import {JobCard} from "./components/JobCard" // Import the JobCard component
 
  export async function getJobs() {
@@ -48,7 +47,8 @@ export async function handleAddJob (job: any) {
       roleDescription: job.roleDescription,
       keyResponsibilities: job.keyResponsibilities,
       requirements: job.requirements,
-      applicants: job.applicants
+      applicants: job.applicants,
+      pay: job.pay
     })
   });
   
