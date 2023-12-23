@@ -20,20 +20,22 @@ import { handleAddJob } from "../page";
 
 export default function AddJob(){
   const [title, setTitle] = useState('');
-  const [jobdescription, setJobDescription] = useState('');
-  const [roledescription, setRoleDescription] = useState('');
+  const [description, setJobDescription] = useState('');
+  const [roleDescription, setRoleDescription] = useState('');
   const [keyResponsibilities, setKeyResponsibilities] = useState('');
   const [requirements, setRequirements] = useState('');
+  const applicants = '0'
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     const job = {
       title,
-      jobdescription,
-      roledescription,
+      description,
+      roleDescription,
       keyResponsibilities,
       requirements,
+      applicants
     };
 
     await handleAddJob(job);
@@ -114,7 +116,7 @@ export default function AddJob(){
           
         </div>
     </form><DialogFooter>
-        <Button type="submit" onClick={handleAddJob}>Create Job</Button>
+        <Button type="submit" onClick={handleSubmit}>Create Job</Button>
       </DialogFooter>
       </DialogContent>
     </Dialog>
