@@ -37,17 +37,18 @@ export async function handleRemoveJob (index: number) {
   return result;
 }
 export async function handleAddJob (job: any) {
-  const response = await fetch('http://127.0.0.1:5000/add_job', {
+  const response = await fetch('http://127.0.0.1:5000/add_jobs', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       title: job.title,
-      jobdescription: job.jobdescription,
-      roledescription: job.roledescription,
+      description: job.description,
+      roleDescription: job.roleDescription,
       keyResponsibilities: job.keyResponsibilities,
       requirements: job.requirements,
+      applicants: job.applicants
     })
   });
   
@@ -56,6 +57,7 @@ export async function handleAddJob (job: any) {
   }
 
   const result = await response.json();
+  console.log(result)
 
   // Reload the page
   window.location.reload();
