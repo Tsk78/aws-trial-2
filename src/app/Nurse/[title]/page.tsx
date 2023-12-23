@@ -31,7 +31,9 @@ export default async function page({ params }: { params: { title: string } }) {
           </div>
         </div>
       </div>
-      <JobDetails jobs={jobs} title={title}/>  
+      <div className="">
+        <JobDetails jobs={jobs} title={title} /> 
+      </div>  
     </>
   );
 }
