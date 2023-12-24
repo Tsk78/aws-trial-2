@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 
 // Simulate a database read for tasks.
 async function getNurses() {
-  const response = await fetch('http://127.0.0.1:5000/nurses');
-  
+  const response = await fetch('http://127.0.0.1:5000/nurses', { cache: 'no-store' });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
