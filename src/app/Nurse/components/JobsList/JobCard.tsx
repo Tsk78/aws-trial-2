@@ -1,6 +1,6 @@
 "use client"
 import { z } from "zod";
-import { JobSchema } from "../data/schema";
+import { JobSchema } from "./data/schema";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -10,23 +10,22 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import Link from 'next/link'
-import { handleRemoveJob } from "../page";
+
 
 export function JobCard({ jobs }: { jobs: z.infer<typeof JobSchema>[] }) {
-  return ( 
+  return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {jobs.map((job, index) => (
         <Card key={index}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-l font-medium">{job.title}</CardTitle> 
+            <CardTitle className="text-l font-medium">{job.title}</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription >{job.description}</CardDescription>
-            <div className="text-m ">Applicants: {job.applicants}</div>
-            <Button asChild style={{ marginRight: '85px' }}>
-              <Link href={`/Admin/${job.title}`}>View applicants</Link>
+            <CardDescription>{job.description}</CardDescription>
+            <div className="text-m ">pay: {job.pay}</div>
+            <Button asChild style={{ marginRight: "85px" }}>
+              <Link href={`/Nurse/${job.title}`}>View Details</Link>
             </Button>
-            <Button onClick={() => handleRemoveJob(index)}>Remove job</Button>
           </CardContent>
         </Card>
       ))}

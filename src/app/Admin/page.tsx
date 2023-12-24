@@ -3,7 +3,6 @@ import { MainNav } from "./components/main-nav"
 import { UserNav } from "./components/user-nav"
 import AddJob from "./components/AddJob"
 import {JobSchema} from "./data/schema"
-
 import {JobCard} from "./components/JobCard" // Import the JobCard component
 
  export async function getJobs() {
@@ -37,10 +36,10 @@ export async function handleRemoveJob (index: number) {
   return result;
 }
 export async function handleAddJob (job: any) {
-  const response = await fetch('http://127.0.0.1:5000/add_jobs', {
-    method: 'POST',
+  const response = await fetch("http://127.0.0.1:5000/add_jobs", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       title: job.title,
@@ -48,20 +47,20 @@ export async function handleAddJob (job: any) {
       roleDescription: job.roleDescription,
       keyResponsibilities: job.keyResponsibilities,
       requirements: job.requirements,
-      applicants: job.applicants
-    })
+      applicants: job.applicants,
+      pay: job.pay,
+    }),
   });
-  
+
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
   const result = await response.json();
-  console.log(result)
+  console.log(result);
 
   // Reload the page
   window.location.reload();
-
   return result;
 }
 export default async function AdminPage() {
