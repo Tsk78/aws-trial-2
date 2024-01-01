@@ -35,6 +35,8 @@ export default function AddJob(){
   const [keyResponsibilities, setKeyResponsibilities] = useState('');
   const [requirements, setRequirements] = useState('');
   const [pay, setPay] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const applicants = '0'
 
   const [loading, setLoading] = useState(false);
@@ -49,7 +51,9 @@ export default function AddJob(){
       keyResponsibilities,
       requirements,
       applicants,
-      pay
+      pay,
+      date,
+      time
     };
 
     await handleAddJob(job);
@@ -112,6 +116,30 @@ export default function AddJob(){
                   placeholder="Pay rate per hour"
                   className="col-span-2"
                   onChange={(e) => setPay(e.target.value)}
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="Date" className="text-right">
+                  Date
+                </Label>
+                <Input
+                  id="Date"
+                  name="Date"
+                  placeholder="dd-mm-yyyy"
+                  className="col-span-2"
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="Time" className="text-right">
+                  Time
+                </Label>
+                <Input
+                  id="Time"
+                  name="Time"
+                  placeholder="e.g. 9am - 5pm"
+                  className="col-span-2"
+                  onChange={(e) => setTime(e.target.value)}
                 />
               </div>
               <Separator className="my-6" />
